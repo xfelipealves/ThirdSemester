@@ -1,0 +1,2 @@
+http://www.phpsimplex.com/pt/exemplo_metodo_simplex.htm
+https://otimizacao.js.org/simplex.html

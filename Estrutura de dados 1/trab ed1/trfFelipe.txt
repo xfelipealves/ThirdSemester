@@ -1,0 +1,27 @@
+bool DList::PushBeforeIT(Thing* Dat)
+{
+	if(!IT)
+		return false;
+	Node*P=Node::MontaNode(Dat);
+ 	if (!P)
+		return false;
+	IT->Prev->Next=P;
+	P->Prev=IT->Prev;
+	P->Next=IT;
+	IT->Prev=P;
+	return true;
+}
+
+bool DList::PushAfterIT(Thing* Dat)
+{
+	if(!IT)
+		return false;
+	Node*P=Node::MontaNode(Dat);
+ 	if (!P)
+		return false;
+	IT->Next->Prev=P;
+	P->Next=IT->Next;
+	P->Prev=IT;
+	IT->Next=P;
+	return true;
+}

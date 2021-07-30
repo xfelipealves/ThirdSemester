@@ -1,0 +1,44 @@
+bool DlistO::Push(Thing* Dat)
+{
+	Node* X = Node::MontaNode(Dat);
+	if (!X)
+		return false;
+	Node**P = &Head;
+	bool v=true; //validador
+	while( *P && Dat->Key > ((*P)->D).Key )
+	{	
+		if ((*P)->Next)
+		{//Tem proximo
+			P=&((*P)->Next);
+		}
+		else
+		{//nao te proximo
+			v=false;
+			break;
+		}
+	}
+	if (v)
+	{//inserir atras do P
+		X->Next=(*P);
+		if (*P)
+		{//Tem P
+			X->Prev=(*P)->Prev;
+			if ((*P)->Prev)
+				(X->Prev)->Next=X;
+			(X->Next)->Prev=X;
+		}
+		else
+		{//Nao tem P
+			X->Prev=NULL;
+		}
+	}
+	else
+	{//inserir depois do P
+		X->Prev=(*P);
+		X->Next=(*P)->Next;
+		(*P)->Next=X;
+	}
+	N++;
+	IT = X;
+	return true;
+}

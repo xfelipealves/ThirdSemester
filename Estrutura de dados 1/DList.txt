@@ -1,0 +1,135 @@
+Class Node
+{
+	Thing D;
+	Node* Next;
+	Node* Prev;
+	MontaNode;
+	DesmontaNode;
+}
+
+Class DList
+{
+	Node* Head;
+	Node* IT;
+	int N;
+     public:
+	DList();
+	bool Search(int k, Thing* Dat);
+	bool ITp();
+	bool ITm();
+	bool ITElem(Thing* Dat);
+	bool IsITOK();
+	void ITbeg();
+	bool Push(Thing* Dat);
+	bool PushBeforeIT(Thing* Dat);//fazer para até amanhã - 09/04
+	bool PushAfterIT(Thing* Dat);//fazer para até amanhã - 09/04
+	bool Remove(int k, Thing* Dat);
+	bool IsEmpty();
+	int Size();
+	void Clear();
+}
+
+DList::DList()
+{
+	Head = IT = N = 0;
+}
+
+bool DList::ITp()
+{
+	if(IT)
+	{
+		IT = IT -> Next;
+		return true;
+	}
+	return false;
+}
+
+bool DList::ITm()
+{
+	if(IT)
+	{
+		IT = IT -> Prev;
+		return true;
+	}
+	return false;
+}
+
+bool DList::IsITOK()
+{
+	if(IT)
+		return true;
+	return false;
+}
+
+void DList::ITbeg()
+{
+	IT=Head;
+}
+
+bool DList::ITElem(Thing* Dat)
+{
+	If (IT)
+	{
+		*Dat = IT -> D;
+		return true;
+	}
+	Return false;
+}
+
+
+
+bool DList::Search(int k, Thing* Dat)
+{
+	IT = Head;
+	while( IT && (IT -> D).key != k) 
+	{
+		IT = IT -> Next;
+	}
+	if (!IT)
+	{
+		return false;
+	}
+	*Dat = IT -> D;
+	return true;
+}
+
+bool Dlist::Push(Thing* Dat)
+{
+	Node* P = Node::MontaNode(Dat);
+	if (!P)
+		return false;
+	P -> Next = Head;
+	P -> Prev = NULL;
+	if(Head)
+	{
+		(P->Next)->Prev = P;
+	}
+	Head = P;	
+	N++;
+	IT = P;
+	return true;
+}
+
+bool DList::Remove(int k, Thing* Dat)
+{
+	for( IT = Head; IT && (IT->D).Key != K; IT = IT->Next);
+	if (!IT)
+		return false;
+	if(IT->Prev)
+	{
+		(IT->Prev)->Next = IT->Next;
+	}
+	else
+	{
+		Head = IT->Next;
+	}
+	if(IT->Next)
+	{
+		(IT->Next)->Prev = IT->Prev;
+	}
+	*Dat = Node::DesmontaNode(IT);
+	N--;
+	IT=Head;
+	return true;
+}
+
