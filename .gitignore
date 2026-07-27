@@ -1,0 +1,29 @@
+# Generated C++ build artifacts
+*.exe
+*.o
+*.out
+*.gch
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+*.pdb
+*.ilk
+*.stackdump
+
+# Common generated build directories and project outputs
+build/
+cmake-build-*/
+CMakeFiles/
+Debug/
+Release/
+Makefile
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# Local Qt/qmake and operating-system metadata created by builds or extraction
+.qmake.stash
+*.pro.user
+._*
